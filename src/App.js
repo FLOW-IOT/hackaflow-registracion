@@ -19,7 +19,7 @@ function App() {
               Escanea el codigo QR o ingresa desde la web
             </p>
             <p className="px-20 text-2xl font-lightbold">
-              web.flow.com.ar/micuenta/login
+              https://portal-registracion-hackaflow.netlify.app/
             </p>
           </div>
           <div class="">
