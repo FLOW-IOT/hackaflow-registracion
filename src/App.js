@@ -1,7 +1,11 @@
+import Login from "./components/Login";
+
 function App() {
   return (
-    <div className='bg-black h-screen'>
-      <div className='grid'></div>
+    <div className="bg-black h-screen">
+      <div className="grid">
+        <Login></Login>
+      </div>
     </div>
   );
 }
