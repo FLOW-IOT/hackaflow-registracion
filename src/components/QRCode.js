@@ -1,12 +1,7 @@
-import React from 'react';
-import { QRImage } from '../assets/QRCode.png';
+import QRImage from "../assets/QRCode2.png";
 
 const QRCode = () => {
-  return (
-    <div>
-      <img src={QRImage} />
-    </div>
-  );
+  return <img src={QRImage} />;
 };
 
 export default QRCode;
