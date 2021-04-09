@@ -7,6 +7,7 @@ import {
 
 import PortalScreen from "./screens/PortalScreen";
 import STVScreen from "./screens/STVScreen";
+import STVSuccess from "./screens/STVSuccess";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path="/stv">
             <STVScreen />
+          </Route>
+          <Route path="/success">
+            <STVSuccess />
           </Route>
           <Route exact path="/">
             <Redirect to="/stv" />
