@@ -4,11 +4,12 @@ import logo from "../assets/logo.svg";
 import { LoginHook, ConcurrencyLoginHook } from "../hooks/LoginHook";
 
 const STVScreen = () => {
-  const baseURL = "https://portal-registracion-hackaflow.netlify.app";
+  const baseURL = "http://flowmobile.page.link/micuenta/login";
   const code = LoginHook();
   ConcurrencyLoginHook(code);
   return (
     <div className="h-screen bg-black text-white px-20">
+      {}
       <div className="flex justify-center py-10">
         <img src={logo} alt="logo"></img>
       </div>
@@ -31,7 +32,7 @@ const STVScreen = () => {
                 Ingresa el siguiente codigo:
               </p>
             </p>
-            <div className="pl-20 text-6xl text-primary font-bold tracking-wider">
+            <div className="pl-20 text-4xl text-primary font-bold tracking-wider">
               {code}
             </div>
           </div>
