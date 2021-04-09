@@ -14,7 +14,7 @@ const STVSuccess = () => {
   return (
     <div className="h-screen bg-black text-white px-20 flex items-center justify-center">
       <div
-        className={`absolute top-10 left-10 text-2xl transition transition-opacity duration-1000 ${opacity}`}
+        className={`absolute top-10 left-10 text-2xl transition transition-opacity duration-500 ${opacity}`}
       >
         Te logueaste con exito.
       </div>
