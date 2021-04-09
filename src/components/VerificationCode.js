@@ -1,26 +1,9 @@
-import { useState, useEffect } from "react";
-
-const VerificationCode = () => {
-  const [code, setCode] = useState("");
-
-  const generateCode = () => {
-    const randomChars = Math.random()
-      .toString(36)
-      .toUpperCase()
-      .substring(2, 6);
-
-    setCode(randomChars);
-  };
-
-  useEffect(() => {
-    generateCode();
-  }, []);
-
+const VerificationCode = ({ code }) => {
   return (
     <div
-      className="text-6xl font-bold tracking-wider"
+      className='text-6xl font-bold tracking-wider'
       style={{
-        color: "#57dfb7",
+        color: '#57dfb7',
       }}
     >
       {code}

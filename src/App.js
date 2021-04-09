@@ -1,11 +1,12 @@
 import logo from './assets/logo.svg';
 import QRCode from './components/QRCode';
 import VerificationCode from './components/VerificationCode';
+import Modal from './components/Modal';
 import { LoginHook, ConcurrencyLoginHook } from './hooks/LoginHook';
 
 function App() {
   const code = LoginHook();
-  ConcurrencyLoginHook(code);
+  const concurrency = ConcurrencyLoginHook(code);
   return (
     <div className='h-screen bg-black text-white px-20'>
       <div className='flex justify-center py-10'>
@@ -33,7 +34,7 @@ function App() {
               </p>
             </p>
             <div className='pl-20'>
-              <VerificationCode />
+              <VerificationCode code={code} />
             </div>
           </div>
         </div>
@@ -41,6 +42,7 @@ function App() {
           <QRCode />
         </div>
       </div>
+      <Modal showModal={concurrency} />
     </div>
   );
 }
