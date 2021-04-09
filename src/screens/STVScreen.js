@@ -1,7 +1,6 @@
 import QRCode from "qrcode.react";
 
 import logo from "../assets/logo.svg";
-import VerificationCode from "../components/VerificationCode";
 import { LoginHook, ConcurrencyLoginHook } from "../hooks/LoginHook";
 
 const STVScreen = () => {
