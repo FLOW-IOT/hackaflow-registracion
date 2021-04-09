@@ -13,7 +13,7 @@ const Container = styled.div`
 const Header = () => {
     return (
         <Container>
-            <img src={LogoFlow}/>
+            <img src={LogoFlow} alt="loguito uwu"/>
         </Container>
     )
 }

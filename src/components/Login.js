@@ -6,7 +6,12 @@ const Wrapper = styled.div`
   display: flex;
   padding-top: 50px;
   & div:nth-child(1) {
-    max-width: 25%;
+    width: 25%;
+    min-width: 300px;
+  }
+  & div:last-child{
+    margin-bottom: 25px
+    width: 75%
   }
 `;
 const Container = styled.div`
@@ -28,7 +33,7 @@ const LoginButton = styled.button`
   font-weight: bold;
 `;
 
-const Title = styled.p`
+const Title = styled.h2`
   font-family: "roboto", sans-serif;
   font-size: 36px;
 `;
@@ -39,10 +44,6 @@ const SubmitButton = styled.button`
   padding: 10px;
   width: 250px;
   color: #000;
-  ::placeholder {
-    font-family: "roboto", sans-serif;
-    font-size: 36px;
-  }
 `;
 
 const Login = () => {
@@ -60,7 +61,7 @@ const Login = () => {
 
   const handleError = () => {
     if (!code) {
-      setError("No puede estar en blanco");
+      setError("El código debe contener al menos X caracteres");
     } else {
       setError("");
     }
@@ -73,7 +74,7 @@ const Login = () => {
       </Container>
       <Container>
         <Title>
-          ¿Querés loguearte en tu TV? Ingresa que el código que aparece en la TV
+          ¿Querés loguearte en tu TV?<br/> Ingresa que el código que aparece en la TV
         </Title>
 
         <Input
