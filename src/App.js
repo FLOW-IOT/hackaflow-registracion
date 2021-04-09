@@ -1,21 +1,34 @@
-import Login from "./components/Login";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import styled from "styled-components";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: black;
-`;
+import PortalScreen from "./screens/PortalScreen";
+import STVScreen from "./screens/STVScreen";
+import STVSuccess from "./screens/STVSuccess";
+
 function App() {
   return (
-    <Wrapper>
-      <Header />
-      <Navbar />
-      <Login></Login>
-    </Wrapper>
+    <div className="bg-black h-screen">
+      <Router>
+        <Switch>
+          <Route path="/portal">
+            <PortalScreen />
+          </Route>
+          <Route path="/stv">
+            <STVScreen />
+          </Route>
+          <Route path="/success">
+            <STVSuccess />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/stv" />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
-
 export default App;
