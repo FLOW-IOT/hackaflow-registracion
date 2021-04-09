@@ -26,7 +26,16 @@ const STVScreen = () => {
               Escanea el codigo QR o ingresa desde la web
             </p>
             <p className='px-20 text-2xl font-lightbold'>
-              {code && <Link to='/portal'>web.flow.com.ar/micuenta/login</Link>}
+              {code && (
+                <Link
+                  to={{
+                    pathname: `/portal`,
+                    query: { code },
+                  }}
+                >
+                  web.flow.com.ar/micuenta/login
+                </Link>
+              )}
             </p>
           </div>
           <div className=''>
