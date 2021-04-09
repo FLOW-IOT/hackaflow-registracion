@@ -1,4 +1,4 @@
-import STVScreen from './screens/STVScreen';
+import STVScreen from "./screens/STVScreen";
 function App() {
   return <STVScreen />;
 }

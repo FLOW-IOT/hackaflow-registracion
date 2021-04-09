@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import { getCode, validateLogin } from '../services/login';
-import deepEqual from '../utils/deepEqualObject';
+import { useState, useEffect, useRef } from "react";
+import { getCode, validateLogin } from "../services/login";
+import deepEqual from "../utils/deepEqualObject";
 
 export function LoginHook() {
   const [code, setCode] = useState(null);
@@ -9,7 +9,7 @@ export function LoginHook() {
     async function getFirstCode() {
       const res = await getCode();
       const { data } = res;
-      setCode(data.code);
+      if (data) setCode(data.code);
     }
     getFirstCode();
 

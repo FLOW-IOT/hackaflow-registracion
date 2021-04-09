@@ -37,7 +37,7 @@ const STVScreen = () => {
           </div>
         </div>
         <div className="mt-20 self-center border-4 border-white">
-          <QRCode value={`${baseURL}/${code}`} size={300} />
+          {code && <QRCode value={`${baseURL}/${code}`} size={300} />}
         </div>
       </div>
       <Modal showModal={showModal} />
