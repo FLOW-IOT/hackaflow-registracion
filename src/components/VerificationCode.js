@@ -17,14 +17,7 @@ const VerificationCode = () => {
   }, []);
 
   return (
-    <div
-      className="text-6xl font-bold tracking-wider"
-      style={{
-        color: "#57dfb7",
-      }}
-    >
-      {code}
-    </div>
+    <div className="text-6xl text-primary font-bold tracking-wider">{code}</div>
   );
 };
 
