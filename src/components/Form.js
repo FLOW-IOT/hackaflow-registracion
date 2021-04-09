@@ -18,8 +18,9 @@ const Form = ({ code, handleChange, handleError, error, handleSubmit }) => {
       {" "}
       <Title>
         ¿Querés loguearte en tu TV?
-        <br /> Ingresa que el código que aparece en la TV
+        <br />
       </Title>
+      <Title>Ingresa que el código que aparece en la TV</Title>
       <Input
         name="code"
         type="text"

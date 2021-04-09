@@ -29,5 +29,7 @@ export const ContainerRight = styled.div`
   button {
     margin: 20px 0;
     width: 300px;
+    font-family: "roboto", sans-serif;
+    font-size: 24px;
   }
 `;
