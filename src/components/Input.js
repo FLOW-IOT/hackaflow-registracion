@@ -5,6 +5,7 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 700px;
+  flex-direction: column;
   && input {
     padding: 40px 40px 10px 0;
     border-bottom: ${(props) =>
