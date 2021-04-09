@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { getCode, validateLogin } from "../services/login";
-import deepEqual from "../utils/deepEqualObject";
+import { useState, useEffect, useRef } from 'react';
+import { getCode, validateLogin } from '../services/login';
+import deepEqual from '../utils/deepEqualObject';
 
 export function LoginHook() {
   const [code, setCode] = useState(null);
@@ -8,8 +8,10 @@ export function LoginHook() {
   useEffect(() => {
     async function getFirstCode() {
       const res = await getCode();
-      const { data } = res;
-      if (data) setCode(data.code);
+      if (res.status === 200) {
+        const { data } = res;
+        if (data) setCode(data.code);
+      }
     }
     getFirstCode();
 
@@ -41,7 +43,9 @@ export function ConcurrencyLoginHook(code) {
   useInterval(() => {
     async function getData() {
       const data = await validateLogin(code);
-      if (!deepEqual(data, loginData)) setLoginData(data);
+      if (data.status === 200) {
+        if (!deepEqual(data, loginData)) setLoginData(data);
+      }
     }
     getData();
   }, seconds);
