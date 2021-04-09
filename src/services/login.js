@@ -22,10 +22,10 @@ function handleError(error) {
   }
 }
 
-export const getCode = async () => {
+export const getCode = async (mac) => {
   try {
     return await client.request({
-      url: `${BASE_URL}/code?mac=00:1e:c2:9e:28:6b`,
+      url: `${BASE_URL}/code?mac=${mac}`,
       method: 'GET',
     });
   } catch (error) {
@@ -33,10 +33,10 @@ export const getCode = async () => {
   }
 };
 
-export const validateLogin = async (code) => {
+export const validateLogin = async (code, mac) => {
   try {
     return await client.request({
-      url: `${BASE_URL}/credentials?code=${code}&mac=00:1e:c2:9e:28:6b`,
+      url: `${BASE_URL}/credentials?code=${code}&mac=${mac}}`,
       method: 'GET',
     });
   } catch (error) {

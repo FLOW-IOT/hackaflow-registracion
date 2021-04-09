@@ -3,12 +3,12 @@ import { useHistory } from 'react-router-dom';
 import { getCode, validateLogin } from '../services/login';
 import deepEqual from '../utils/deepEqualObject';
 
-export function LoginHook() {
+export function LoginHook(mac) {
   const [code, setCode] = useState(null);
 
   useEffect(() => {
     async function getFirstCode() {
-      const res = await getCode();
+      const res = await getCode(mac);
       if (res.status === 200) {
         const { data } = res;
         if (data) setCode(data.code);
@@ -28,7 +28,7 @@ function isValidLoginData(loginData) {
   return Boolean(Object.keys(loginData).length);
 }
 
-export function ConcurrencyLoginHook(code) {
+export function ConcurrencyLoginHook(code, mac) {
   const history = useHistory();
   const [loginData, setLoginData] = useState({});
 
@@ -43,11 +43,11 @@ export function ConcurrencyLoginHook(code) {
     return () => {
       clearInterval(time);
     };
-  }, [loginData]);
+  }, [history, loginData]);
 
   useInterval(() => {
     async function getData() {
-      const data = await validateLogin(code);
+      const data = await validateLogin(code, mac);
       if (data.status === 200) {
         if (!deepEqual(data, loginData)) setLoginData(data);
       }
