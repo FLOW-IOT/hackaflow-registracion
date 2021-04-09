@@ -4,7 +4,7 @@ import logo from "../assets/logo.svg";
 import { LoginHook, ConcurrencyLoginHook } from "../hooks/LoginHook";
 
 const STVScreen = () => {
-  const baseURL = "http://flowmobile.page.link/micuenta/login";
+  const baseURL = "https://portal-registracion-hackaflow.netlify.app";
   const code = LoginHook();
   const showModal = ConcurrencyLoginHook(code);
   return (
