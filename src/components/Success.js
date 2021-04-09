@@ -1,18 +1,13 @@
 import React from "react";
 import SuccessTv from "../assets/success-tv.png";
-import { Title, Container } from "./styles";
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  width: 100%;
-`;
+import { Title, ContainerRight } from "./styles";
 
 const Success = () => {
   return (
-    <Container>
+    <ContainerRight>
       <img src={SuccessTv} alt="" />
       <Title>Te logueaste con éxito en tu TV</Title>
-    </Container>
+    </ContainerRight>
   );
 };
 

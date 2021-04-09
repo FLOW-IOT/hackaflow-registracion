@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import Input from "./Input";
-import { Title, Container } from "./styles";
+import { Title, ContainerRight } from "./styles";
 
 const SubmitButton = styled.button`
   background-color: #57d4ac;
   border-radius: 20px;
   padding: 10px;
   width: 250px;
+  margin-bottom: 25px;
+  width: 75%;
   color: #000;
 `;
 
 const Form = ({ code, handleChange, handleError, error, handleSubmit }) => {
   return (
-    <Container>
+    <ContainerRight>
       {" "}
       <Title>
         ¿Querés loguearte en tu TV?
@@ -28,7 +30,7 @@ const Form = ({ code, handleChange, handleError, error, handleSubmit }) => {
         error={error}
       />
       <SubmitButton onClick={handleSubmit}>INGRESAR</SubmitButton>
-    </Container>
+    </ContainerRight>
   );
 };
 

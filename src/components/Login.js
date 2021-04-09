@@ -2,20 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Success from "./Success";
 import Form from "./Form";
-import { Container } from "./styles";
+import { ContainerLeft } from "./styles";
 
 const Wrapper = styled.div`
   display: flex;
   padding-top: 50px;
-  
-  & div:nth-child(1) {
-    width: 25%;
-    min-width: 300px;
-  }
-  & div:last-child{
-    margin-bottom: 25px
-    width: 75%
-  }
+  background: #000;
 `;
 
 const LoginButton = styled.button`
@@ -35,7 +27,7 @@ const LoginButton = styled.button`
 const Login = () => {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
-  const wasSuccessful = true;
+  const wasSuccessful = false;
 
   const handleSubmit = () => {
     //mandamo toda la data al back asi re lindo
@@ -56,22 +48,21 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <Container>
+      <ContainerLeft>
         <LoginButton>easy login</LoginButton>
-      </Container>
-      <Container>
-        {wasSuccessful ? (
-          <Success />
-        ) : (
-          <Form
-            code={code}
-            handleChange={handleChange}
-            handleError={handleError}
-            error={error}
-            handleSubmit={handleSubmit}
-          />
-        )}
-      </Container>
+      </ContainerLeft>
+
+      {wasSuccessful ? (
+        <Success />
+      ) : (
+        <Form
+          code={code}
+          handleChange={handleChange}
+          handleError={handleError}
+          error={error}
+          handleSubmit={handleSubmit}
+        />
+      )}
     </Wrapper>
   );
 };
