@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { getCode, validateLogin } from '../services/login';
 import deepEqual from '../utils/deepEqualObject';
 
@@ -21,17 +22,21 @@ export function LoginHook() {
 }
 
 let time = null;
-const seconds = 20000;
+const seconds = 1000;
 
 function isValidLoginData(loginData) {
   return Boolean(Object.keys(loginData).length);
 }
 
 export function ConcurrencyLoginHook(code) {
+  const history = useHistory();
   const [loginData, setLoginData] = useState({});
 
   useEffect(() => {
     if (isValidLoginData(loginData)) {
+      setTimeout(() => {
+        history.push('/success');
+      }, 2000);
       console.log(loginData);
     }
 

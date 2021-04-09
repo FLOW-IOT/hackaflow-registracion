@@ -3,28 +3,28 @@ import {
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import PortalScreen from "./screens/PortalScreen";
-import STVScreen from "./screens/STVScreen";
-import STVSuccess from "./screens/STVSuccess";
+import PortalScreen from './screens/PortalScreen';
+import STVScreen from './screens/STVScreen';
+import STVSuccess from './screens/STVSuccess';
 
 function App() {
   return (
-    <div className="bg-black h-screen">
+    <div className='bg-black h-screen'>
       <Router>
         <Switch>
-          <Route path="/portal">
+          <Route path='/portal'>
             <PortalScreen />
           </Route>
-          <Route path="/stv">
+          <Route path='/stv'>
             <STVScreen />
           </Route>
-          <Route path="/success">
+          <Route path='/success'>
             <STVSuccess />
           </Route>
-          <Route exact path="/">
-            <Redirect to="/stv" />
+          <Route exact path='/'>
+            <Redirect to='/stv' />
           </Route>
         </Switch>
       </Router>
