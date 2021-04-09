@@ -1,15 +1,14 @@
 import QRCode from "qrcode.react";
-
+import Modal from "../components/Modal";
 import logo from "../assets/logo.svg";
 import { LoginHook, ConcurrencyLoginHook } from "../hooks/LoginHook";
 
 const STVScreen = () => {
   const baseURL = "http://flowmobile.page.link/micuenta/login";
   const code = LoginHook();
-  ConcurrencyLoginHook(code);
+  const showModal = ConcurrencyLoginHook(code);
   return (
     <div className="h-screen bg-black text-white px-20">
-      {}
       <div className="flex justify-center py-10">
         <img src={logo} alt="logo"></img>
       </div>
@@ -41,6 +40,7 @@ const STVScreen = () => {
           <QRCode value={`${baseURL}/${code}`} size={300} />
         </div>
       </div>
+      <Modal showModal={showModal} />
     </div>
   );
 };

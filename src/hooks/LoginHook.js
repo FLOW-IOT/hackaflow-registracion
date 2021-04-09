@@ -21,12 +21,16 @@ export function LoginHook() {
 let time = null;
 const seconds = 20000;
 
+function isValidLoginData(loginData) {
+  return Boolean(Object.keys(loginData).length);
+}
+
 export function ConcurrencyLoginHook(code) {
   const [loginData, setLoginData] = useState({});
 
   useEffect(() => {
-    if (loginData) {
-      console.log('do something');
+    if (isValidLoginData(loginData)) {
+      console.log(loginData);
     }
 
     return () => {
@@ -41,6 +45,8 @@ export function ConcurrencyLoginHook(code) {
     }
     getData();
   }, seconds);
+
+  return isValidLoginData(loginData);
 }
 
 function useInterval(callback, delay) {
