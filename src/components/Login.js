@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {useLocation} from 'react-router-dom'
+import React, { useState } from "react";
 import axios from 'axios'
 import styled from "styled-components";
 import Result from "./Result";
@@ -35,14 +34,6 @@ const Login = () => {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
   const [result, setResult] = useState(null)
-  const location = useLocation()
-
-  useEffect(()=>{
-    const codeFromLink = location.query.code;
-    if (codeFromLink){
-      setCode(codeFromLink)
-    }
-  },[])
   const handleSubmit = async () => {
     if(!code) return;
     try {
@@ -70,7 +61,7 @@ const Login = () => {
 
   const handleError = () => {
     if (!code) {
-      setError("El código debe contener al menos X caracteres");
+      setError("El código debe contener al menos 6 caracteres");
     } else {
       setError("");
     }
