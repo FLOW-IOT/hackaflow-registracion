@@ -22,7 +22,7 @@ export function LoginHook() {
 }
 
 let time = null;
-const seconds = 1000;
+const seconds = 10000;
 
 function isValidLoginData(loginData) {
   return Boolean(Object.keys(loginData).length);
