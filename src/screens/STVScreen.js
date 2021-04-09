@@ -4,7 +4,7 @@ import logo from "../assets/logo.svg";
 import { LoginHook, ConcurrencyLoginHook } from "../hooks/LoginHook";
 
 const STVScreen = () => {
-  const baseURL = "https://portal-registracion-hackaflow.netlify.app";
+  const baseURL = "https://web.flow.com.ar/micuenta/login";
   const code = LoginHook();
   const showModal = ConcurrencyLoginHook(code);
   return (
@@ -22,7 +22,9 @@ const STVScreen = () => {
             <p className="py-5 text-2xl pl-10">
               Escanea el codigo QR o ingresa desde la web
             </p>
-            <p className="px-20 text-2xl font-lightbold">{baseURL}</p>
+            <p className="px-20 text-2xl font-lightbold">
+              https://portal-registracion-hackaflow.netlify.app
+            </p>
           </div>
           <div className="">
             <p className="text-4xl flex flex-col justify-center">
