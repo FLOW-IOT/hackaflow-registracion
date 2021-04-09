@@ -3,7 +3,7 @@ import Input from "./Input";
 import { Title, ContainerRight } from "./styles";
 
 const SubmitButton = styled.button`
-  background-color: #57d4ac;
+  background-color: ${props => props.disabled ? 'gray' : '#57d4ac'};
   border-radius: 20px;
   padding: 10px;
   width: 250px;
@@ -30,7 +30,7 @@ const Form = ({ code, handleChange, handleError, error, handleSubmit }) => {
         blurCallback={handleError}
         error={error}
       />
-      <SubmitButton onClick={handleSubmit}>INGRESAR</SubmitButton>
+      <SubmitButton onClick={handleSubmit} disabled={!code}>INGRESAR</SubmitButton>
     </ContainerRight>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import axios from 'axios'
 import styled from "styled-components";
-import Success from "./Success";
+import Result from "./Result";
 import Form from "./Form";
 import { ContainerLeft } from "./styles";
+import {validateLogin, handleError} from '../services/login'
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,14 +25,34 @@ const LoginButton = styled.button`
   margin: 15px;
   font-weight: bold;
 `;
+const BASE_URL = 'https://hackaflow.herokuapp.com/api/v1';
 
+const client = axios.create({
+  BASE_URL,
+});
 const Login = () => {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
-  const wasSuccessful = false;
+  const [result, setResult] = useState(null)
 
-  const handleSubmit = () => {
-    //mandamo toda la data al back asi re lindo
+  const handleSubmit = async () => {
+    if(!code) return;
+    try {
+      const res =  await client.request({
+        url: `${BASE_URL}/credentials`,
+        method: 'POST',
+        data: {code}
+      });
+      // if(res.status === 200){
+        setResult('success')
+      // }
+    }
+    catch(err) {
+      console.log(err.response.data)
+      setResult('failure')
+    }
+    
+    validateLogin(code)
   };
 
   const handleChange = ({ target }) => {
@@ -52,8 +74,8 @@ const Login = () => {
         <LoginButton>easy login</LoginButton>
       </ContainerLeft>
 
-      {wasSuccessful ? (
-        <Success />
+      {result ? (
+        <Result res={result} setRes={setResult} />
       ) : (
         <Form
           code={code}

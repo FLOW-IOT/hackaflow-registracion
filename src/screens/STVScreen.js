@@ -1,6 +1,7 @@
 import QRCode from "qrcode.react";
 import Modal from "../components/Modal";
 import logo from "../assets/logo.svg";
+import {Link} from 'react-router-dom';
 import { LoginHook, ConcurrencyLoginHook } from "../hooks/LoginHook";
 
 const STVScreen = () => {
@@ -23,7 +24,8 @@ const STVScreen = () => {
               Escanea el codigo QR o ingresa desde la web
             </p>
             <p className="px-20 text-2xl font-lightbold">
-              https://portal-registracion-hackaflow.netlify.app
+              {code && <Link to='/portal'>web.flow.com.ar/micuenta/login
+              </Link>}
             </p>
           </div>
           <div className="">
